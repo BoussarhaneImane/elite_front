@@ -1,0 +1,71 @@
+.our-services {
+     padding: 60px 0;
+   }
+   
+   .section-heading {
+     text-align: center;
+     margin-bottom: 40px;
+   }
+   
+   .section-heading h2 {
+     font-size: 2.5rem;
+     font-weight: bold;
+     margin-bottom: 10px;
+   }
+   
+   .section-heading span {
+     font-size: 0.9rem;
+   
+   }
+   
+   .service-item {
+     text-align: center;
+     padding: 20px;
+    
+   
+     background: #fff;
+     box-shadow: 0 4px 8px rgba(163, 163, 163, 0.424);
+   }
+   
+   .service-item h4 {
+     font-size: 1.5rem;
+     margin-bottom: 15px;
+   }
+   
+   .service-item p {
+     font-size: 1rem;
+     color: #666;
+     margin-bottom: 15px;
+   }
+   
+   .service-item img {
+     max-width: 100%;
+     height: auto;
+  
+   }
+   
+   .container {
+     width: 90%;
+     margin: 0 auto;
+   }
+   
+   .row {
+     display: flex;
+     flex-wrap: wrap;
+     justify-content: center;
+   }
+   
+   .col-lg-4 {
+     flex: 1;
+     max-width: 33.333%;
+     padding: 0 15px;
+     box-sizing: border-box;
+   }
+   
+   @media (max-width: 768px) {
+     .col-lg-4 {
+       max-width: 100%;
+       margin-bottom: 20px;
+     }
+   }
+   

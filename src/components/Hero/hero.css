@@ -1,0 +1,89 @@
+.thumb-container {
+ 
+    position: relative;
+    overflow: hidden;
+}
+.right-content .row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px; /* Espacement entre les images */
+}
+
+.right-content .col-lg-6 {
+    flex: 0 0 calc(50% - 10px); /* 50% moins le gap pour chaque image */
+    box-sizing: border-box;
+}
+
+.thumb img {
+    width: 100%;
+    transition: transform 0.5s ease;
+}
+
+/* Pour la carte à gauche */
+.hover-content1 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(92, 89, 89, 0.151); /* Background filter */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  
+    transition: none; /* Pas d'animation */
+}
+
+/* Autres hover-content (restent inchangés) */
+.hover-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Background filter */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.thumb:hover .hover-content {
+    opacity: 1;
+}
+
+
+/* Apply white color to the text inside inner-content */
+.inner-content {
+    text-align: center;
+    color: white;
+  
+}
+
+.inner {
+    text-align: center;
+    color: white;
+}
+
+.main-border-button {
+    margin-top: 10px;
+}
+
+.main-border-button a {
+    display: inline-block;
+    padding: 10px 20px;
+    border: 2px solid white;
+    color: white;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+}
+
+.main-border-button a:hover {
+    background-color: white;
+    color: black;
+}
+
+.thumb:hover img {
+    transform: scale(1.1); /* Image zoom effect */
+}

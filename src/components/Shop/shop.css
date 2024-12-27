@@ -1,0 +1,49 @@
+#border{
+    border: #1cc487 solid 1px;
+}
+.custom-alert {
+ 
+   margin-left: 680px;
+    background-color: rgb(245, 45, 45);
+    color: white;
+    padding: 10px;
+    border-radius:15px 2px 2px 15px;
+    margin-bottom: 10px;
+    text-align: center;
+    width: 570px;
+   
+    
+  }
+  p{
+    font-size: 17px;
+  }
+  /* CSS */
+.overlay {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(244, 245, 249, 0.648);
+    color: white;
+    padding: 58px;
+    height: 268px;
+    border-radius:5px;
+    text-align: center;
+  }
+  
+  .overlay input[type='file'] {
+    display: none;
+  }
+  
+  .overlay label {
+    cursor: pointer;
+    background-color: rgb(245, 45, 45) ;
+    padding: 8.5px 10px;
+    border-radius: 41px;
+    transition:background-color 0.5s ;
+  }
+  
+  .overlay label:hover {
+    background-color: #e45e5e;
+  }
+  

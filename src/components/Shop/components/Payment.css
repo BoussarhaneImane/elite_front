@@ -1,0 +1,9 @@
+#cardborder{
+     border: #28c189 solid 1px;
+}
+input::placeholder{
+     padding: 15px;
+}
+textarea::placeholder{
+     padding: 16px;
+}

@@ -1,0 +1,14 @@
+[build]
+  command = "npm run build"
+  publish = "build"
+  functions = "lambda"
+
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Access-Control-Allow-Origin = "*"
+
+[[redirects]]
+  from = "/assets/*"
+  to = "/assets/:splat"
+  status = 200

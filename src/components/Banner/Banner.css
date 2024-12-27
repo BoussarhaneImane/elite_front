@@ -1,0 +1,171 @@
+/* Container for the carousel */
+.carousel-container {
+     text-align: center;
+     position: relative;
+     width: 100%;
+     margin-top: 30px;
+     overflow: hidden;
+   }
+   
+   /* Title and subtitle styling */
+   .carousel-title {
+     font-size: 43px;
+     margin-bottom: 10px;
+   }
+   
+   .carousel-subtitle {
+     font-size: 18px;
+     margin-bottom: 30px;
+     font-style: italic;
+     color: rgb(166, 163, 163);
+   }
+   
+   /* Carousel styling */
+   .carousel {
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     position: relative;
+     width: 100%;
+     margin: auto;
+   }
+   
+   /* Styling for the container of carousel items */
+   .carousel-products {
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     width: 100%;
+     overflow: hidden;
+     cursor: pointer;
+   }
+   
+   /* Individual carousel product styling */
+   .carousel-product {
+     position: relative;
+     width: 23%;
+     margin: 0 10px;
+     height: 300px; /* Consistent height for all images */
+     overflow: hidden; /* Prevent overflow of elements */
+     transition: transform 0.3s ease;
+   }
+   
+   /* Ensure images fit properly */
+   .carousel-product img {
+     width: 100%;
+     height: 100%;
+     object-fit: cover;
+     transition: opacity 0.3s ease;
+   }
+   
+   /* Overlay for product information */
+   .carousel-info {
+     position: absolute;
+     bottom: 0;
+     left: 0;
+     right: 0;
+     padding: 10px;
+     background: rgba(0, 0, 0, 0.218); /* Dark overlay for better text contrast */
+     color: #fff;
+     text-align: center;
+     opacity: 0;
+     transition: opacity 0.3s ease;
+   }
+   
+   /* Title and price styling within the product info */
+   .carousel-info h3 {
+     margin: 5px 0;
+     font-size: 18px;
+   }
+   
+   .price {
+     font-size: 18px;
+     font-weight: bold;
+     margin-top: 5px;
+     color: #fff; /* Ensure price is visible against dark background */
+   }
+   
+   /* Styling for the shopping cart icon */
+   .shop-icon {
+     position: absolute;
+     top: 50%;
+     left: 50%;
+     transform: translate(-50%, -50%) translateY(50px); /* Initial position offscreen */
+     background-color: rgba(255, 255, 255, 0.7);
+     padding: 10px;
+     border-radius: 50%;
+     opacity: 0;
+     transition: opacity 0.3s ease, transform 0.3s ease;
+   }
+   
+   /* Fade-up effect for the icon on hover */
+   .carousel-product:hover .shop-icon {
+     opacity: 1;
+     transform: translate(-50%, -50%) translateY(0);
+   }
+   
+   /* Show product info on hover */
+   .carousel-product:hover .carousel-info {
+     opacity: 1;
+   }
+   
+   /* Arrow button styling */
+   .carousel-arrow {
+     background: none;
+     border: none;
+     cursor: pointer;
+     padding: 10px;
+     z-index: 10;
+     position: absolute;
+     top: 50%;
+     transform: translateY(-50%);
+   }
+   
+   /* Positioning for left and right arrows */
+   .left-arrow {
+     left: 80px;
+   }
+   
+   .right-arrow {
+     right: 80px;
+   }
+   
+   /* Responsive design adjustments */
+   @media (max-width: 768px) {
+     .carousel-products {
+       max-width: 100%;
+     }
+   
+     .carousel-product {
+       width: 45%;
+       height: 250px; /* Adjust height for smaller screens */
+     }
+   
+     .left-arrow {
+       left: 10px;
+     }
+   
+     .right-arrow {
+       right: 10px;
+     }
+   }
+   
+   @media (max-width: 480px) {
+     .carousel-product {
+       width: 90%;
+       height: 200px; /* Adjust height for mobile screens */
+     }
+   
+     .left-arrow, .right-arrow {
+       font-size: 30px;
+     }
+   
+     .left-arrow {
+       left: 5px;
+     }
+   
+     .right-arrow {
+       right: 5px;
+     }
+   }
+   

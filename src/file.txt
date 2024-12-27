@@ -1,0 +1,118 @@
+Commande artisan et code de la méthode "up" pour créer la table "contrats_location":
+Commande artisan:
+
+bash
+Copy code
+php artisan make:migration create_contrats_location_table --create=contrats_location
+Code de la méthode "up":
+
+php
+Copy code
+Schema::create('contrats_location', function (Blueprint $table) {
+    $table->id();
+    $table->foreignId('user_id')->constrained('users');
+    $table->foreignId('bien_immobilier_id')->constrained('biens_immobiliers');
+    $table->date('date_debut');
+    $table->date('date_fin');
+    $table->decimal('montant_mensuel', 8, 2);
+    $table->string('statut');
+    $table->timestamps();
+});
+Code de la méthode "up" pour ajouter une colonne "Date_naissance" de type Date à la table "users":
+php
+Copy code
+Schema::table('users', function (Blueprint $table) {
+    $table->date('date_naissance')->nullable();
+});
+Modifier le type de la colonne "Disponible" de la table "biens_immobiliers" en Booléen à l'aide d'une migration:
+php
+Copy code
+Schema::table('biens_immobiliers', function (Blueprint $table) {
+    $table->boolean('disponible')->change();
+});
+Partie 2:
+
+Commande artisan pour créer le modèle "BienImmobilier" avec la migration et les factories:
+bash
+Copy code
+php artisan make:model BienImmobilier -m -f
+Code pour le modèle "BienImmobilier" en respectant les relations Eloquent:
+php
+Copy code
+public function contratsLocation() {
+    return $this->hasMany(ContratLocation::class);
+}
+Accesseur au modèle 'BienImmobilier' renvoyant le prix de location formaté avec le symbole de la devise:
+php
+Copy code
+public function getPrixLocationAttribute() {
+    return '$' . number_format($this->prix_location, 2);
+}
+Définir un Cast dans le modèle 'ContratLocation' pour définir le type de Montant_mensuel en float:
+php
+Copy code
+protected $casts = [
+    'montant_mensuel' => 'float',
+];
+Requêtes:
+a. Liste des biens immobiliers loués par un utilisateur donné $user1 dans une variable $biens:
+
+php
+Copy code
+$biens = BienImmobilier::whereHas('contratsLocation', function ($query) use ($user1) {
+            $query->where('user_id', $user1->id);
+        })->get();
+b. Créer un utilisateur et 2 contrats de location, associer ces contrats à cet utilisateur:
+
+php
+Copy code
+$user = User::factory()->create();
+$contrats = ContratLocation::factory()->count(2)->create(['user_id' => $user->id]);
+c. Liste des contrats de location actifs pour un bien immobilier donné $bien1:
+
+php
+Copy code
+$contratsActifs = $bien1->contratsLocation()->where('statut', 'Actif')->get();
+Partie 3:
+
+Commande pour créer le Controller de type ressource ContratLocationController:
+bash
+Copy code
+php artisan make:controller ContratLocationController --resource
+Méthode permettant de récupérer l'id d'utilisateur authentifié:
+php
+Copy code
+$idUtilisateur = auth()->id();
+Commande pour créer le middleware "AuthMiddleware" qui vérifie si l'utilisateur est authentifié avant d'accéder aux fonctionnalités:
+bash
+Copy code
+php artisan make:middleware AuthMiddleware
+Méthodes dans la classe "ContratLocationController":
+php
+Copy code
+public function index() {
+    $contrats = auth()->user()->contratsLocation()->paginate(10);
+    return view('index', compact('contrats'));
+}
+
+public function store(Request $request) {
+    // Validation et création du contrat de location
+}
+
+public function update(Request $request, ContratLocation $contrat) {
+    // Validation et mise à jour du contrat de location
+}
+
+public function delete(ContratLocation $contrat) {
+    // Résiliation du contrat de location
+}
+
+public function filter(Request $request) {
+    // Filtrer les contrats de location par statut
+}
+Définition des routes pour ces fonctionnalités dans web.php, protégées par authentification:
+php
+Copy code
+Route::middleware('auth')->group(function () {
+    Route::resource('contrats', 'ContratLocationController');
+}); 

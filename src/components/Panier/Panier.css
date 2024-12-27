@@ -1,0 +1,221 @@
+.checkout-forms-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 2rem; 
+  margin-top: 5rem;
+}
+
+.form-container {
+  flex: 1; /* Chaque formulaire prend la même largeur */
+  max-width: 48%; /* Assurez-vous que les deux formulaires ne prennent pas plus de 48% chacun */
+  padding: 1rem;
+  border: solid 1px black;
+  background-color: #fefefe; /* Fond pour chaque formulaire */
+}
+.shop-page-container {
+  padding: 2rem;
+  background-color: #ffffff;
+  min-height: 80vh;
+}
+
+.panier-title {
+  font-size: 1.2rem; /* Increased title size */
+  margin-bottom: 1.5rem; /* Increased bottom margin */
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.empty-cart {
+  text-align: center;
+  font-size: 1.5rem; /* Increased font size */
+  color: #666;
+}
+
+.shop-items {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem; /* Increased gap between items */
+  margin-left: 1rem;
+}
+
+.shop-item {
+  display: flex;
+  align-items: center;
+  background: #fff;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Increased shadow for better visibility */
+  padding: 2rem; /* Increased padding */
+ 
+}
+
+.item-image {
+  width: 400px; /* Increased image width */
+  height: 400px; /* Increased image height */
+  object-fit: cover;
+  margin-right: 1.5rem; /* Increased margin */
+}
+
+.shop-item-info {
+  flex: 1;
+  margin-left: 5rem;
+}
+
+.shop-item-info h3 {
+  font-size: 1.5rem; /* Increased item title size */
+  margin-bottom: 0.5rem; /* Added bottom margin */
+}
+
+.shop-item-info p {
+  font-size: 1.25rem; /* Increased price font size */
+  margin-bottom: 0.5rem; /* Added bottom margin */
+}
+
+.quantity-controls {
+  display: flex;
+  align-items: center;
+  gap: 1rem; /* Increased gap between buttons and quantity */
+}
+
+.quantity-btn {
+  background: #000000;
+  color: #ffffff;
+  border: solid 1px black;
+  padding: 0.75rem 1rem; /* Increased padding */
+  cursor: pointer;
+  font-size: 1.25rem; /* Increased button font size */
+}
+
+.quantity-btn:disabled {
+  background: #ffffff;
+  color: #000000;
+  cursor: not-allowed;
+}
+
+.quantity {
+  font-size: 1.25rem; /* Increased quantity font size */
+  padding: 0.5rem;
+}
+
+.remove-item {
+  background: transparent;
+  color: #dc3545;
+  border: none;
+  cursor: pointer;
+  font-size: 2.5rem; /* Increased icon size */
+}
+
+.total-price {
+  text-align: center;
+  margin-top: 3rem; /* Increased top margin */
+  font-size: 1.2rem; /* Increased font size */
+  font-weight: bold;
+}
+
+.checkout-btn {
+  background: #000000;
+  color: #fff;
+  border: none;
+  margin-top: 2rem;
+  padding: 0.75rem 1.5rem; /* Increased padding */
+  font-size: 1rem; /* Increased font size */
+  cursor: pointer;
+ 
+}
+
+.checkout-btn:hover {
+  background: #333; /* Slightly lighter hover background */
+}
+
+
+.checkout-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centrer les inputs */
+  margin-top: 2rem;
+}
+
+.form-inputs{
+  width: 70%; /* Faire prendre 80% de la largeur */
+  padding: 0.75rem;
+  margin-bottom: 1rem;
+  border: solid 1px black !important;
+  font-size: 0.90rem;
+  color: #333;
+}
+
+.form-inputs::placeholder {
+  font-size: 0.8rem;
+  color: rgb(146, 146, 146); /* Placeholder gris */
+}
+
+.submit-btn {
+  padding: 0.75rem 2rem;
+  background-color: #000;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.submit-btn:hover {
+  background-color: #333;
+}
+
+
+@media (max-width: 768px) {
+  .shop-item {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1rem;
+  }
+
+  .item-image {
+    width: 100%; /* Make image responsive */
+    height: auto;
+    margin-bottom: 1rem; /* Margin bottom for image */
+  }
+
+  .shop-item-info {
+    width: 100%;
+  }
+
+  .shop-item-info h3 {
+    font-size: 1.2rem; /* Decrease title size on small screens */
+  }
+
+  .quantity-controls {
+    gap: 0.5rem;
+  }
+
+  .quantity-btn {
+    font-size: 1rem; /* Adjust button font size for small screens */
+    padding: 0.5rem;
+  }
+
+  .quantity {
+    font-size: 1rem; /* Adjust quantity font size for small screens */
+  }
+
+  .remove-item {
+    font-size: 2rem; /* Adjust icon size for small screens */
+  }
+
+  .total-price {
+    font-size: 1.25rem; /* Adjust font size for small screens */
+  }
+
+  .checkout-btn {
+    font-size: 1rem; /* Adjust button font size for small screens */
+    padding: 0.5rem 1rem;
+  }
+  .form-inputs{
+    width: 100%; /* Prendre la largeur complète sur petits écrans */
+  }
+  .checkout-forms-container {
+    flex-direction: column; /* Sur petits écrans, les formulaires s'empilent */
+    align-items: center;
+  }
+
+  .form-container {
+    max-width: 100%; /* Les formulaires prennent 100% de la largeur sur petits écrans */
+  }
+}
