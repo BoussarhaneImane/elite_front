@@ -28,7 +28,7 @@ const SignupC = () => {
     setLoading(true);
     console.log('Submitting:', formData);
     try {
-      const response = await axiosClient.post('/api/register', formData);
+      const response = await axiosClient.post('https://elit-backend-6rid.onrender.com/api/register', formData);
       console.log('Response:', response.data);
       setFormData({
         name: '',

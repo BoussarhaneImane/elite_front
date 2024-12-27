@@ -35,7 +35,7 @@ const Panier = () => {
     }
   
     try {
-      const response = await axiosClient.post('/api/checkout', {
+      const response = await axiosClient.post('https://elit-backend-6rid.onrender.com/api/checkout', {
         cartItems,
         totalPrice,
         userInfo,
